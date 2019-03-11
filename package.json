@@ -16,6 +16,15 @@
     "url": "https://github.com/LennartLence/torrent-webserver/issues"
   },
   "homepage": "https://github.com/LennartLence/torrent-webserver#readme",
+  "keywords": [
+    ".torrent",
+    "bittorrent",
+    "webtorrent",
+    "peer-to-peer",
+    "read torrent",
+    "torrent server",
+    "project lens"
+  ],
   "dependencies": {
     "downloads-folder": "^1.0.1",
     "rimraf": "^2.6.3",

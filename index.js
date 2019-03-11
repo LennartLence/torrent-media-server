@@ -123,8 +123,9 @@ class TorrentServer {
 
           torrentItem.onReady(tSessionPort);
 
-          resolve();
         });
+        
+        resolve(torrentItem);
       } catch (error) {
         reject(error);
 
