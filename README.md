@@ -1,1 +1,1 @@
-# torrent-webserver
+Enhanced wrapper of webtorrent client.
