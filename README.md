@@ -15,17 +15,15 @@ import torrentServer from "torrent-webserver";
 
 torrentServer
   .newTorrent(magnetURI)
-  .then(torrnet => {
-    console.log(torrent);
-    
+  .then(torrent => {
     torrent.onMetadata = () => {
-      console.log("Received Metadata");
+      console.log("Received Metadata", torrent.files);
     };
     torrent.onVerifying = () => {
       console.log("Verifying files...");
     };
-    torrent.onReady = () => {
-      console.log("Torrnet Ready");
+    torrent.onReady = sessionPort => {
+      console.log(`Torrent ready! Navigate to http://localhost:${sessionPort}`);
     };
   })
   .catch(err => {
