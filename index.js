@@ -1,22 +1,22 @@
-import webTorrent from "webtorrent";
-import downloadsFolder from "downloads-folder";
-import torrentNameParser from "torrent-name-parser";
-import path from "path";
-import fs from "fs";
-import rimraf from "rimraf";
+const webTorrent = require("webtorrent");
+const downloadsFolder = require("downloads-folder");
+const torrentNameParser = require("torrent-name-parser");
+const path = require("path");
+const fs = require("fs");
+const rimraf = require("rimraf");
 
 class TorrentServer {
   constructor() {
     this.torrents = new Map();
     this.aduioFormats = /.flac|.mp3|.wav/;
     this.videoFormats = /.mp4|.avi|.m4v|.mkv/;
-    this.defStorePath = downloadsFolder() + "/Project Lens Downloads";
+    this.defStorePath = downloadsFolder() + "/Torrents";
   }
 
   /**
    * @param {Object} opts
    */
-  
+
   newTorrent(torrentId, opts = {}) {
     return new Promise((resolve, reject) => {
       try {
@@ -54,7 +54,7 @@ class TorrentServer {
           onVerifying: () => {
             console.log("verifying");
           },
-          onReady: (tSessionPort) => {
+          onReady: tSessionPort => {
             console.log(`ready on ${tSessionPort}`);
           }
         });
@@ -105,7 +105,7 @@ class TorrentServer {
 
           torrentItem.files = torrentFiles;
 
-          torrentItem.onMetadata();
+          torrentItem.onMetadata(torrentFiles);
 
           if (
             tSession.files.find(file => {
@@ -122,9 +122,8 @@ class TorrentServer {
           tSession.createServer().listen(tSessionPort);
 
           torrentItem.onReady(tSessionPort);
-
         });
-        
+
         resolve(torrentItem);
       } catch (error) {
         reject(error);
@@ -155,5 +154,4 @@ class TorrentServer {
     });
   }
 }
-
-export default new TorrentServer();
+module.exports = new TorrentServer();

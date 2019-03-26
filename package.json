@@ -1,5 +1,5 @@
 {
-  "name": "torrent-webserver",
+  "name": "torrent-media-server",
   "version": "1.0.0",
   "description": "Enhanced wrapper for webtorrent client",
   "main": "index.js",
