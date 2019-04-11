@@ -1,6 +1,6 @@
 # Torrent-Webserver
 
-Enhanced wrapper of webtorrent client.
+Minimal wrapper of webtorrent client for media files.
 
 ## Installation
 
