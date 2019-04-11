@@ -1,16 +1,18 @@
-## Torrent-Webserver
+# Torrent-Webserver
 
 Enhanced wrapper of webtorrent client.
 
-### Installation
+## Installation
 
 ```shell
 npm i torrent-webserver
 ```
 
-### Usage
+## Usage
 
 ```js
+//Creating new torrent
+
 import torrentServer from "torrent-webserver";
 
 torrentServer
@@ -29,4 +31,10 @@ torrentServer
   .catch(err => {
     console.log(err);
   });
+
+//Removing torrent
+
+torrentServer
+  .removeTorrent(magnetURI)
+  .then(() => console.log("Torrent fully destroyed"));
 ```

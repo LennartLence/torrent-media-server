@@ -1,6 +1,6 @@
 {
   "name": "torrent-webserver",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Enhanced wrapper for webtorrent client",
   "main": "index.js",
   "scripts": {
